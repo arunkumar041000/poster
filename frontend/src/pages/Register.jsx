@@ -11,6 +11,7 @@ export default function Register() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -34,18 +35,15 @@ export default function Register() {
         <p className="text-center text-gray-500 mb-4">Create your account to get started.</p>
         {error && <div className="mb-2 text-red-500 text-center">{error}</div>}
         {success && <div className="mb-2 text-green-600 text-center">{success}</div>}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 m-1 mx-auto">
           <div>
-            <label className="block mb-1 font-medium text-gray-700">Username</label>
-            <input type="text" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={username} onChange={e => setUsername(e.target.value)} required />
+            <input type="text" placeholder="user name" name="username" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={username} onChange={e => setUsername(e.target.value)} required />
           </div>
           <div>
-            <label className="block mb-1 font-medium text-gray-700">Email</label>
-            <input type="email" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={email} onChange={e => setEmail(e.target.value)} required />
+            <input type="email" placeholder="email" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={email} onChange={e => setEmail(e.target.value)} required />
           </div>
           <div>
-            <label className="block mb-1 font-medium text-gray-700">Password</label>
-            <input type="password" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={password} onChange={e => setPassword(e.target.value)} required />
+            <input type="password" placeholder="password" className="w-full border border-gray-300 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" value={password} onChange={e => setPassword(e.target.value)} required />
           </div>
           <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition font-semibold" disabled={loading}>
             {loading ? "Registering..." : "Register"}

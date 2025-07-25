@@ -5,7 +5,8 @@ import {
   createPostHandler,
   getPostByIdHandler,
   updatePostHandler,
-  deletePostHandler
+  deletePostHandler,
+  getPublishedPostsHandler
 } from "./postHandlers.js";
 
 const post = express.Router();
@@ -16,6 +17,7 @@ const post = express.Router();
 post.use(authMiddleware);
 
 post.get("/", getAllPostsHandler);
+post.get("/published", getPublishedPostsHandler);
 post.post("/", createPostHandler);
 post.get("/:id", getPostByIdHandler);
 post.patch("/:id", updatePostHandler);

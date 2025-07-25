@@ -15,7 +15,7 @@ export function TokenProvider({ children }) {
       localStorage.removeItem("token");
       navigate("/login")
     }
-  }, [token,navigate]);
+  }, [token]);
 
   return (
     <TokenContext.Provider value={{ token, setToken }}>

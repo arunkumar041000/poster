@@ -80,4 +80,12 @@ export function deletePostHandler(req, res) {
       res.send({ message: "Post deleted" });
     });
   });
+}
+
+export function getPublishedPostsHandler(req, res) {
+  const userId = req.user.userId;
+  db.all("SELECT * FROM posts WHERE published = 1 ", (err, rows) => {
+    if (err) return res.status(500).send({ message: "DB error" });
+    res.send(rows);
+  });
 } 
